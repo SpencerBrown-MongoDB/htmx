@@ -1,0 +1,29 @@
+<form action="/contacts" method="get" class="tool-bar">
+    <label for="search">Search Term</label>
+    <input id="search" type="search" name="q" value="{{.Query}}"/>
+    <input type="submit" value="Search"/>
+</form>
+
+<table border="1" cellpadding="3" rules="all">
+    <thead>
+        <tr>
+            <th>First</th> <th>Last</th> <th>Phone</th> <th>Email</th> <th></th> 
+        </tr>
+        </thead>
+        <tbody>
+            {{range .Contacts}}
+            <tr>
+                <td>{{.First}}</td>
+                <td>{{.Last}}</td>
+                <td>{{.Phone}}</td>
+                <td><a href="mailto:{{.Email}}">{{.Email}}</a></td>
+                <td><a href="/contacts/edit?id={{.ID}}">Edit</a>
+                    <a href="/contacts//view?id={{.ID}}">View</a></td>
+            </tr>
+            {{end}}
+        </tbody>
+</table>
+<p>
+    <a href="/contacts/new">Add Contact</a>
+</p>
+
