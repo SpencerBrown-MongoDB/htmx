@@ -1,7 +1,6 @@
 package contact
 
 import (
-	"errors"
 	"fmt"
 	"strconv"
 )
@@ -61,7 +60,7 @@ func GetByID(idString string) (*Contact, error) {
 			return &theContact, nil
 		}
 	}
-	return nil, errors.New("Contact with ID %d not found")
+	return nil, fmt.Errorf("Contact with ID %d not found", id)
 }
 
 func Delete(deletedContact *Contact) error {

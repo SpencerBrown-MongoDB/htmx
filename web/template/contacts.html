@@ -17,8 +17,8 @@
                 <td>{{.Last}}</td>
                 <td>{{.Phone}}</td>
                 <td><a href="mailto:{{.Email}}">{{.Email}}</a></td>
-                <td><a href="/contacts/edit?id={{.ID}}">Edit</a>
-                    <a href="/contacts//view?id={{.ID}}">View</a></td>
+                <td><a href="/contacts/edit/{{.ID}}">Edit</a>
+                    <a href="/contacts//view/{{.ID}}">View</a></td>
             </tr>
             {{end}}
         </tbody>
