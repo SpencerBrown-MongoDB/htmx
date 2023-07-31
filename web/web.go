@@ -19,6 +19,9 @@ func Setup() {
 	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
 		http.ServeFile(w, r, filepath.Join("web", "static", "favicon.ico"))
 	})
+	http.HandleFunc("/assets/htmx.min.js", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, filepath.Join("web", "assets", "htmx.min.jx"))
+	})
 	http.HandleFunc("/contacts/view/", viewHandler)
 	http.HandleFunc("/contacts/edit/", editHandler)
 	http.HandleFunc("/contacts/delete/", deleteHandler)
