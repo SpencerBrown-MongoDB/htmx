@@ -12,25 +12,6 @@ import (
 	"github.com/SpencerBrown-MongoDB/htmx/contact"
 )
 
-const port = "8080"
-
-func Setup() {
-	http.HandleFunc("/", indexHandler)
-	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, filepath.Join("web", "static", "favicon.ico"))
-	})
-	http.HandleFunc("/assets/htmx.min.js", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeFile(w, r, filepath.Join("web", "assets", "htmx.min.jx"))
-	})
-	http.HandleFunc("/contacts/view/", viewHandler)
-	http.HandleFunc("/contacts/edit/", editHandler)
-	http.HandleFunc("/contacts/delete/", deleteHandler)
-	http.HandleFunc("/contacts", contactHandler)
-	http.HandleFunc("/contacts/new", newContactHandler)
-	fmt.Printf("Starting web server on port %s: use Ctrl+C to stop\n", port)
-	log.Fatal(http.ListenAndServe("localhost:"+port, nil))
-}
-
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/contacts", http.StatusFound)
 }
